@@ -1,0 +1,20 @@
+ <!--Listado articulos-->
+ <div id="articles" >
+    <article class="article-item" id="article-template" *ngFor="let article of articles">
+        <div class="image-wrap">
+            <img src="{{url_img+article.image}}" alt={{article.title}} *ngIf="article.image"/>
+            <img src="/assets/images/default.jpg" alt={{article.title}} *ngIf="!article.image"/>
+        </div>
+
+        <h2>{{article.title}}</h2>
+        <span class="date">
+            {{article.date}}
+        </span>
+        <a href="#">Leer más</a>
+
+        <div class="clearfix"></div>
+    </article>
+
+    <!--AÑADIR ARTICULOS VIA JS-->
+
+</div>

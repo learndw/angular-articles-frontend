@@ -1,0 +1,45 @@
+<app-slider [name]="name_template"></app-slider>
+<div class="center">
+    <section id="content">
+
+        <p>formulario works!</p>
+        <div *ngIf="user.name">
+
+            <ul>
+                <li>{{user.name}}</li>
+                <li>{{user.lastname}}</li>
+                <li>{{user.bio}}</li>
+                <li>{{user.gender}}</li>
+            </ul>
+        </div>
+        <form class="mid-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" name="nombre" #name="ngModel" [(ngModel)]="user.name"/>
+            </div>
+
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" name="apellidos" #lastname="ngModel" [(ngModel)]="user.lastname"/>
+            </div>
+
+            <div class="form-group">
+                <label for="bio">Biografia</label>
+                <textarea name="bio" #bio="ngModel" [(ngModel)]="user.bio"></textarea>
+            </div>
+
+            <div class="form-group radibuttons">
+                <input type="radio" name="genero" value="hombre" #gender="ngModel" [(ngModel)]="user.gender"/> Hombre 
+                <input type="radio" name="genero" value="mujer" #gender="ngModel" [(ngModel)]="user.gender"/> Mujer 
+                <input type="radio" name="genero" value="otro" #gender="ngModel" [(ngModel)]="user.gender"/> Otro
+            </div>
+
+            <div class="clearfix"></div>
+
+            <input type="submit" value="Enviar" class="btn btn-success" />
+
+       </form>
+
+    </section>
+    <app-sidebar></app-sidebar>
+</div>
