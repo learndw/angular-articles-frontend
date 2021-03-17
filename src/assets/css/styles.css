@@ -204,13 +204,22 @@ body {
    transition: 300ms all;
    border: none;
    cursor:pointer;
+   margin: 10px;
 }
 
 .btn-success{
     background: rgb(23, 150, 19);
 }
+.btn-warning{
+    color: #444;
+    background: rgb(255, 251, 0);
+}
+.btn-danger{
+    background: rgb(247, 7, 7);
+}
 
-.btn-success:hover{
+.btn-success:hover, .btn-danger:hover, .btn-warning:hover{
+    color: white;
     background:black;
 }
 
@@ -229,6 +238,7 @@ body {
 }
 
 input[type="text"],
+input[type="file"],
 textarea{
     width: 100%;
     min-height: 30px;
@@ -272,6 +282,9 @@ textarea{
     padding: 0px;
 }
 
+.thumb_img{
+    width: 280px;
+}
 .article-item{
     width: 100%;
     border-bottom: 1px solid #eee;

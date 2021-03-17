@@ -10,6 +10,7 @@ import { Global } from '../../services/global';
 export class ArticlesComponent implements OnInit {
 
   @Input() articles:Article
+  @Input() error:any
   public url_img:string
 
   constructor() { 

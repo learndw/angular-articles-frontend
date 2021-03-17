@@ -4,6 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 //Cargar modulos y servicios de las rutas
 import { routing, appRoutingProviders } from './app.routing';
 
+//Subir archivos
+import { AngularFileUploaderModule } from "angular-file-uploader";
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SliderComponent } from './components/slider/slider.component';
@@ -19,6 +22,12 @@ import { FormsModule } from '@angular/forms';
 //Permite realizar peticiones ajax
 import { HttpClientModule } from '@angular/common/http';
 import { ArticlesComponent } from './components/articles/articles.component';
+//Modulo de Moment
+import { MomentModule } from 'angular2-moment';
+import { ArticleComponent } from './components/article/article.component';
+import { SearchComponent } from './components/search/search.component';
+import { NewArticleComponent } from './components/new-article/new-article.component';
+import { EditArticleComponent } from './components/edit-article/edit-article.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +42,18 @@ import { ArticlesComponent } from './components/articles/articles.component';
     PaginaComponent,
     ErrorComponent,
     ArticlesComponent,
+    ArticleComponent,
+    SearchComponent,
+    NewArticleComponent,
+    EditArticleComponent
   ],
   imports: [
     BrowserModule, 
     routing,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MomentModule,
+    AngularFileUploaderModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

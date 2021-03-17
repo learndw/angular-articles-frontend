@@ -32,11 +32,7 @@ export class BlogComponent implements OnInit {
         if(response['articles'].length >=1){
 
           this.articles = response['articles']
-
-        }else{
-
         }
-
         
       },
       error => {
