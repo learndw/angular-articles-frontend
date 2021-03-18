@@ -4,6 +4,8 @@ import { Article } from '../../models/article';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Global } from '../../services/global';
 
+//Alertas
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-edit-article',
@@ -94,6 +96,8 @@ export class EditArticleComponent implements OnInit {
       response=>{
         if(response['article']){
           this.article=response['article']
+          swal("Articulo modificado exitosamente!", "Haz click en ok Para continuar", "success");
+
           this._router.navigate(['/blog/article/'+this.article._id])
         }
         

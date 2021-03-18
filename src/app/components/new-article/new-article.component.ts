@@ -4,6 +4,9 @@ import { Article } from '../../models/article';
 import { Router } from '@angular/router';
 import { Global } from '../../services/global';
 
+//Alertas
+import swal from 'sweetalert';
+
 @Component({
   selector: 'app-new-article',
   templateUrl: './new-article.component.html',
@@ -15,7 +18,7 @@ export class NewArticleComponent implements OnInit {
   public article: Article
   public status: string
   public page_title: string
-  public is_edit:boolean
+  public is_edit: boolean
 
   afuConfig = {
     multiple: false,
@@ -47,8 +50,8 @@ export class NewArticleComponent implements OnInit {
     private _router: Router
   ) {
     this.article = new Article('', '', '', null, null)
-    this.page_title='Nuevo Articulo'
-    this.is_edit=false
+    this.page_title = 'Nuevo Articulo'
+    this.is_edit = false
   }
 
   ngOnInit(): void {
@@ -70,6 +73,9 @@ export class NewArticleComponent implements OnInit {
         if (response['status'] == 'success') {
           this.status = response['status']
           this.article = response['article']
+
+          swal("Articulo creado exitosamente!", "Haz click en ok Para continuar", "success");
+
           this._router.navigate(['/blog'])
 
         }

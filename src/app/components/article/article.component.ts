@@ -5,7 +5,8 @@ import { ArticleService } from '../../services/article.service';
 import { Article } from '../../models/article';
 import { Global } from '../../services/global';
 
-
+//Alertas
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-article',
@@ -56,17 +57,34 @@ export class ArticleComponent implements OnInit {
   }
 
   deleteArticle(id) {
-    this._articleService.deleteArticle(id).subscribe(
-      response => {
-        this._router.navigate(['/blog'])
+    swal({
+      title: "Estas seguro?",
+      text: "Una vez eliminado el articulo no se podra recuperar!",
+      icon: "warning",
+      buttons: [true, true],
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        this._articleService.deleteArticle(id).subscribe(
+          response => {
+            swal("Tu articulo ha sido eliminado correctamente!", {
+              icon: "success",
+            });
+            this._router.navigate(['/blog'])
+            
+          },
+          error => {
 
-      },
-      error => {
-        this._router.navigate(['/blog/article/' + this.article._id])
-
-
-      }
-    )
+            swal("Your imaginary file is safe!");
+            this._router.navigate(['/blog/article/' + this.article._id])
+    
+    
+          }
+        )
+      } 
+    });
+    
   }
 
 }
